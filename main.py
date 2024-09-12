@@ -12,3 +12,8 @@ inventario.agregar_producto(producto_dos)
 inventario.agregar_producto(producto_tres)
 
 inventario.mostrar_productos()
+
+
+
+
+#solo es un comentario

@@ -18,3 +18,5 @@ class Inventario:
             print("Precio", producto.precio)
             print("Categoria: ", producto.categoria)
             print("Color: ", producto.color)
+
+#solo es un comentario

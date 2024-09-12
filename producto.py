@@ -11,3 +11,7 @@ class Producto:
         self.precio = precio
         self.categoria = categoria
         self.color = color
+
+
+
+#solo es un comentario
