@@ -34,3 +34,4 @@ def direccion(self):
 @property
 def rfc(self):
     return self.rfc 
+

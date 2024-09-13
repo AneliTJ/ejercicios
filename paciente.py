@@ -42,3 +42,6 @@ class Paciente:
     @property
     def direccion(self):
         return self.direccion
+    
+
+    
