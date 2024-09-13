@@ -17,31 +17,39 @@ class Paciente:
         self.estatura = estatura
         self.direccion = direccion
 
+    def mostrar_informacion(self):
+        print(f"\nId:{self.id}")
+        print(f"\nnombre:{self.nombre}")
+        print(f"\nano_nacimiento:{self.ano_nacimiento}")
+        print(f"\npeso:{self.peso}")
+        print(f"\nestatura:{self.estatura}")
+        print(f"\ndireccion:{self.direccion}")
+
 
     #getters
-    @property
-    def id(self):
-        return self.id
+    #@property
+    #def id(self):
+     #   return self.id
     
-    @property
-    def nombre(self):
-        return self.nombre
+    # @property
+    # def nombre(self):
+    #     return self.nombre
     
-    @property
-    def ano_nacimiento(self):
-        return self.ano_nacimiento
+    # @property
+    # def ano_nacimiento(self):
+    #     return self.ano_nacimiento
     
-    @property
-    def peso(self):
-        return self.peso
+    # @property
+    # def peso(self):
+    #     return self.peso
     
-    @property
-    def estatura(self):
-        return self.estatura
+    # @property
+    # def estatura(self):
+    #     return self.estatura
     
-    @property
-    def direccion(self):
-        return self.direccion
+    # @property
+    # def direccion(self):
+    #     return self.direccion
     
 
     

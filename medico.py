@@ -15,23 +15,23 @@ class Medico:
 
 
     #getters
-@property
-def id(self):
-    return self.id
+# @property
+# def id(self):
+#     return self.id
     
-@property
-def nombre(self):
-    return self.nombre
+# @property
+# def nombre(self):
+#     return self.nombre
     
-@property
-def ano_nacimiento(self):
-    return self.ano_nacimiento
+# @property
+# def ano_nacimiento(self):
+#     return self.ano_nacimiento
     
-@property
-def direccion(self):
-    return self.direccion
+# @property
+# def direccion(self):
+#     return self.direccion
     
-@property
-def rfc(self):
-    return self.rfc 
+# @property
+# def rfc(self):
+#     return self.rfc 
 
