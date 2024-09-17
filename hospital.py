@@ -46,5 +46,4 @@ class Hospital:
         if len(self.medicos)==0:
             print("No puedes registrar una consulta, no hay medicos")
             return 
-        
-        
+

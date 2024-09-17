@@ -37,6 +37,3 @@ class Consulta:
     @property
     def paciente(self):
         return self.paciente 
-    
-
-    #

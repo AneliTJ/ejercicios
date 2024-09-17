@@ -51,5 +51,3 @@ class Paciente:
     # def direccion(self):
     #     return self.direccion
     
-
-    
