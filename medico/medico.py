@@ -6,8 +6,8 @@ class Medico:
     direccion = str
     rfc = str
 
-    def __init__(self, nombre: str, rfc:str , ano_nacimiento: int, direccion:str ):
-        self.id_medico = random.randint(1,10000)
+    def __init__(self,id_medico: int, nombre: str, ano_nacimiento: int, rfc:str , direccion:str ):
+        self.id_medico = id_medico
         self.nombre =nombre 
         self.ano_nacimiento = ano_nacimiento
         self.rfc= rfc

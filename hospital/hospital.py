@@ -4,7 +4,6 @@ from medico.medico import Medico
 from consulta.consulta import Consulta
 
 class Hospital:
-
     pacientes : List[Paciente] = []
     medicos : List[Medico] = []
     consultas : List[Consulta] = []
@@ -31,7 +30,7 @@ class Hospital:
         menores = []
         mayores = []
         for paciente in self.pacientes:
-            if paciente.clasificar_pacientes_edad() == "menor":
+            if paciente.ano_nacimiento < 2006:
                 menores.append(paciente)
             else:
                 mayores.append(paciente)
