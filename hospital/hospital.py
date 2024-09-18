@@ -2,17 +2,18 @@ from paciente.paciente import Paciente
 from typing import List
 from medico.medico import Medico
 from consulta.consulta import Consulta
+from validador_hospital import ValidadorHospital
 
 class Hospital:
     pacientes : List[Paciente] = []
     medicos : List[Medico] = []
     consultas : List[Consulta] = []
+    validador_hospital = ValidadorHospital ()
 
     def registrar_consulta(self,id_paciente, id_medico):
-        if self.validar_cantidad_usuarios() == False:
+        if not self.validador_hospital.validar_cantidad_usuarios(lista_pacientes=self.pacientes, lists_medicos= self.medicos):
             return
-        
-        if self.validar_existencia_paciente(id_paciente) ==False or self.validar_existencia_medico(id_medico) == False:
+        if not self.validador_hospital.validar_existencia_paciente(id_paciente= id_paciente, lista_pacientes=self.pacientes):
             print("No se puede registrar la consulta, no existe el medico o el paciente")
             return 
         print ("continuamos con el registro")
@@ -74,13 +75,4 @@ class Hospital:
             print("Médico no encontrado")
 
 
-        
-    def validar_cantidad_usuarios(self):
-        if len(self.pacientes)==0:
-            print("No puedes registrar una consulta, no hay pacientes")
-            return False
-        
-        if len(self.medicos)==0:
-            print("No puedes registrar una consulta, no hay medicos")
-            return 
         
