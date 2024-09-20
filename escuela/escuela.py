@@ -24,5 +24,8 @@ class Escuela:
 
     
 
-    def generar_numero_control_maestro(self):
+    def generar_numero_control_maestro(self, maestro: Maestro):
+        ano_nacimiento = maestro.ano_nacimiento
+        dia =datetime.now().day
+        aleatorio
         numeroControl = f"M{datetime.now().year}{datetime.now().day}{randint(500,5000)}{[1]}{print(letra_nombre[0:1])}{rfc[-2:0]}{len(self.lista_maestros)+1}"

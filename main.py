@@ -1,7 +1,10 @@
 from escuela.escuela import Escuela
 from estudiantes.estudiante import Estudiante
+from maestros.maestro import Maestro
 from datetime import datetime
+from materias.materia import Materia
 escuela = Escuela()
+
 
 while True: 
     print("** Mindbox**")
@@ -35,8 +38,11 @@ while True:
         letra_rfc = rfc [-2:0]
         sueldo = input("Ingresa el sueldo del maestro: ")
         ano_nacimiento = int(input("Ingresa el año nacimiento del maestro: "))
-        numeroControl= escuela.generar_numero_control_maestro()
-        print (numeroControl)
+        maestro= Maestro(numero_control= "", nombre = nombre, ano_nacimiento =ano, apellido=apellido, rfc=rfc, sueldo=sueldo)
+        generar_numero_control_maestro = escuela.generar_numero_control_maestro(maestro)
+        maestro.numeroControl=generar_numero_control_maestro
+        escuela.registrar_maestro(maestro)
+        print (generar_numero_control_maestro)
 
 
     elif opcion =="3":
