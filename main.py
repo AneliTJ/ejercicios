@@ -27,7 +27,14 @@ while True:
         fecha_nacimiento = datetime(ano, mes, dia)
 
     elif opcion =="2":
-        pass
+        print("Seleccionaste la opcion para registrar un maestro")
+        nombre = input("Ingresa el nombre del maestro: ")
+        apellido = input("Ingresa el apellido del maestro: ")
+        rfc = input("Ingresa el rfc del maestro: ")
+        sueldo = input("Ingresa el sueldo del maestro: ")
+        ano_nacimiento = int(input("Ingresa el año nacimiento del maestro: "))
+        numeroControl= escuela.generar_numero_control_maestro()
+        print (numeroControl)
 
 
     elif opcion =="3":
