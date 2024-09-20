@@ -29,8 +29,10 @@ while True:
     elif opcion =="2":
         print("Seleccionaste la opcion para registrar un maestro")
         nombre = input("Ingresa el nombre del maestro: ")
+        letra_nombre = nombre[0:1]
         apellido = input("Ingresa el apellido del maestro: ")
         rfc = input("Ingresa el rfc del maestro: ")
+        letra_rfc = rfc [-2:0]
         sueldo = input("Ingresa el sueldo del maestro: ")
         ano_nacimiento = int(input("Ingresa el año nacimiento del maestro: "))
         numeroControl= escuela.generar_numero_control_maestro()

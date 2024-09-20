@@ -22,5 +22,7 @@ class Escuela:
     def registrar_maestro (self, maestro:Maestro):
         self.lista_maestros.append(maestro)
 
-    def generar_numero_control_maestro(self, nombre, rfc):
-        numeroControl = f"M{datetime.now().year}{datetime.now().day}{randint(500,5000)}{[1]}{nombre[1]}{rfc[-1]}{len(self.lista_maestros)+1}"
+    
+
+    def generar_numero_control_maestro(self):
+        numeroControl = f"M{datetime.now().year}{datetime.now().day}{randint(500,5000)}{[1]}{print(letra_nombre[0:1])}{rfc[-2:0]}{len(self.lista_maestros)+1}"
