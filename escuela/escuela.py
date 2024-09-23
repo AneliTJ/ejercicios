@@ -22,10 +22,25 @@ class Escuela:
     def registrar_maestro (self, maestro:Maestro):
         self.lista_maestros.append(maestro)
 
-    
-
     def generar_numero_control_maestro(self, maestro: Maestro):
         ano_nacimiento = maestro.ano_nacimiento
         dia =datetime.now().day
-        aleatorio
-        numeroControl = f"M{datetime.now().year}{datetime.now().day}{randint(500,5000)}{[1]}{print(letra_nombre[0:1])}{rfc[-2:0]}{len(self.lista_maestros)+1}"
+        random = randint (500,5000)
+        letra_nombre = maestro.nombre[:2].upper()
+        letra_rfc = maestro.rfc[-2:].upper()
+        longitud_maestros = len(self.lista_maestros) + 1
+        numero_control = f"M{ano_nacimiento}{dia}{random}{letra_nombre}{letra_rfc}{longitud_maestros}"
+        return numero_control
+
+    def registrar_materia(self, materia: Materia):
+        self.lista_materias.append(materia)
+
+    def generar_id_materia(self,materia: Materia):
+        letra_instructor= materia.instructor [-2:].upper()
+        numero_semestre= materia.semestre 
+        cant_creditos = materia.creditos
+        aleatorio= randint(1,1000)
+        id_materia= f"MT{letra_instructor}{numero_semestre}{cant_creditos}{aleatorio}"
+        return id_materia
+
+    

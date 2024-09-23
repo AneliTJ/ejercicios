@@ -38,15 +38,24 @@ while True:
         letra_rfc = rfc [-2:0]
         sueldo = input("Ingresa el sueldo del maestro: ")
         ano_nacimiento = int(input("Ingresa el año nacimiento del maestro: "))
-        maestro= Maestro(numero_control= "", nombre = nombre, ano_nacimiento =ano, apellido=apellido, rfc=rfc, sueldo=sueldo)
+        maestro= Maestro(numero_control= "", nombre = nombre, ano_nacimiento =ano_nacimiento, apellido=apellido, rfc=rfc, sueldo=sueldo)
         generar_numero_control_maestro = escuela.generar_numero_control_maestro(maestro)
-        maestro.numeroControl=generar_numero_control_maestro
+        maestro.numero_control=generar_numero_control_maestro
         escuela.registrar_maestro(maestro)
         print (generar_numero_control_maestro)
 
 
     elif opcion =="3":
-        pass
+        print("Seleccionaste la opcion para registrar una materia")
+        instructor= input ("Ingresa el nombre del instructor: ")
+        descripcion= input ("Ingresa la descipcion de la materia: ")
+        semestre= int(input("Ingresa el semestre correspondiente a la materia: "))
+        creditos= int (input("Ingresa los creditos de la materia: "))
+        materia = Materia(id_materia= "", instructor= instructor, descripcion=descripcion, semestre=semestre,creditos=creditos)
+        generar_numero_control_materia=escuela.generar_id_materia(materia)
+        materia.id_materia=generar_numero_control_materia
+        escuela.registrar_materia(materia)
+        print(generar_numero_control_materia)
 
 
     elif opcion =="4":
