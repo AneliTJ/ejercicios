@@ -13,7 +13,14 @@ while True:
     print("3. Registrar materia")
     print("4. Registrar grupo")
     print("5. Registrar horario")
-    print("6. Salir")
+    print("6. Mostrar estudiantes")
+    print("7. Mostrar maestros") #Tarea
+    print("8. Mostrar materias")#Tarea
+    print("9. Mostrar grupos")
+    print("10. Eliminar estudiante")
+    print("11. Eliminar maestro")#Tarea
+    print("12. Eliminar materia")#Tarea
+    print("13. Salir")
 
     opcion = input("Ingresa una opcion para continuar: ")
 
@@ -28,6 +35,8 @@ while True:
         mes = int(input("Ingresa el mes nacimiento del estudiante: "))
         dia = int(input("Ingresa el dia nacimiento del estudiante: "))
         fecha_nacimiento = datetime(ano, mes, dia)
+        estudiante= Estudiante(numero_control= "", nombre = nombre, apellido=apellido,curp=curp, fecha_nacimiento=fecha_nacimiento)
+        escuela.registrar_estudiante(estudiante)
 
     elif opcion =="2":
         print("Seleccionaste la opcion para registrar un maestro")
@@ -65,7 +74,24 @@ while True:
     elif opcion =="5":
         pass
 
-
     elif opcion =="6":
+        escuela.listar_estudiantes()
+
+    elif opcion =="7":
+        pass
+
+    elif opcion =="8":
+        pass
+
+    elif opcion =="9":
+        pass
+
+    elif opcion =="10":
+        print ("Seleccionaste la opcion para eliminar un estudiante")
+        numero_control = input ("Ingresa el numero de control del estudiante que quieras eliminar: ")
+        escuela.eliminar_estudiante(numero_control=numero_control)
+
+
+    elif opcion =="13":
         print ("\nHasta luego")
         break

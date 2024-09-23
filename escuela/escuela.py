@@ -19,6 +19,19 @@ class Escuela:
         numero_control = f"L{datetime.now().year}{datetime.now().month}{len(self.lista_estudiantes) + 1}{randint(0, 10000)}"
         return numero_control
     
+    def listar_estudiantes(self):
+        print("**Estudiantes**")
+        for estudiante in self.lista_estudiantes:
+            print (estudiante.mostrar_info_estudiante())
+
+    def eliminar_estudiante(self, numero_control:str):
+        for estudiante in self.lista_estudiantes:
+            if estudiante.numero_control == numero_control:
+                self.lista_estudiantes.remove(estudiante)
+                print("Estudiante eliminado")
+                return #si no se encuentra el estudiante, te da el print de abajo por eso tambien esta al nivel del for :'D
+        print (f"No se encontro el estudiante con el id: {numero_control}")
+    
     def registrar_maestro (self, maestro:Maestro):
         self.lista_maestros.append(maestro)
 
