@@ -6,6 +6,8 @@ class Estudiante:
     apellido: str
     curp: str
     fecha_nacimiento: datetime
+    info: str
+    
 
     def __init__(self, numero_control:str, nombre: str, apellido: str, curp:str, fecha_nacimiento: datetime):
         self.numero_control = numero_control
@@ -16,7 +18,8 @@ class Estudiante:
 
     def mostrar_info_estudiante(self):
         nombre_completo = f"{self.nombre}{self.apellido}"
-        info = ("Numero de control: {numero_control},nombre completo: {nombre_completo}, curp: {self.curp}, fecha de nacimiento: {self.fecha_nacimiento}")
+        print (f"Numero de control: {self.numero_control},nombre completo: {nombre_completo}, curp: {self.curp}, fecha de nacimiento: {self.fecha_nacimiento}")
+        
         
     
     

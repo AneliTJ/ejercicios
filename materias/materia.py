@@ -16,3 +16,6 @@ class Materia:
         self.semestre=semestre
         self.creditos=creditos
 
+    def mostrar_materias(self):
+        print(f"ID de la materia: {self.id_materia}, Instructor: {self.instructor}, Descripcion: {self.descripcion}, Semestre: {self.semestre}, Creditos: {self.creditos}")
+        

@@ -14,12 +14,12 @@ while True:
     print("4. Registrar grupo")
     print("5. Registrar horario")
     print("6. Mostrar estudiantes")
-    print("7. Mostrar maestros") #Tarea
-    print("8. Mostrar materias")#Tarea
+    print("7. Mostrar maestros") 
+    print("8. Mostrar materias")
     print("9. Mostrar grupos")
     print("10. Eliminar estudiante")
-    print("11. Eliminar maestro")#Tarea
-    print("12. Eliminar materia")#Tarea
+    print("11. Eliminar maestro")
+    print("12. Eliminar materia")
     print("13. Salir")
 
     opcion = input("Ingresa una opcion para continuar: ")
@@ -78,10 +78,10 @@ while True:
         escuela.listar_estudiantes()
 
     elif opcion =="7":
-        pass
+        escuela.listar_maestros()
 
     elif opcion =="8":
-        pass
+        escuela.listar_materias()
 
     elif opcion =="9":
         pass
@@ -91,6 +91,15 @@ while True:
         numero_control = input ("Ingresa el numero de control del estudiante que quieras eliminar: ")
         escuela.eliminar_estudiante(numero_control=numero_control)
 
+    elif opcion =="11":
+        print("Seleccionaste eliminar a un maestro")
+        numero_control=input("Ingresa el ID del maestro que quieras eliminar: ")
+        escuela.eliminar_maestro(numero_control=numero_control)
+
+    elif opcion =="12":
+        print("Seleccionaste eliminar materia")
+        id_materia=input ("Ingresa el ID de la materia que desees eliminar: ")
+        escuela.eliminar_materia(id_materia=id_materia)
 
     elif opcion =="13":
         print ("\nHasta luego")

@@ -15,4 +15,6 @@ class Maestro:
         self.sueldo=sueldo
         self.ano_nacimiento= ano_nacimiento
 
-    
+    def mostrar_info_maestro(self):
+        nombre_completo= f"{self.nombre} {self.apellido}"
+        print(f"Numero de control: {self.numero_control}, Nombre completo: {nombre_completo}, RFC: {self.rfc}, Sueldo: {self.sueldo}, Año de nacimiento: {self.ano_nacimiento}")
