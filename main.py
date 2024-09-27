@@ -53,14 +53,13 @@ while True:
         escuela.registrar_maestro(maestro)
         print (generar_numero_control_maestro)
 
-
     elif opcion =="3":
         print("Seleccionaste la opcion para registrar una materia")
-        instructor= input ("Ingresa el nombre del instructor: ")
+        nombre_materia= input ("Ingresa el nombre de la materia: ")
         descripcion= input ("Ingresa la descipcion de la materia: ")
         semestre= int(input("Ingresa el semestre correspondiente a la materia: "))
         creditos= int (input("Ingresa los creditos de la materia: "))
-        materia = Materia(id_materia= "", instructor= instructor, descripcion=descripcion, semestre=semestre,creditos=creditos)
+        materia = Materia(id_materia= "", nombre_materia=nombre_materia, descripcion=descripcion, semestre=semestre,creditos=creditos)
         generar_numero_control_materia=escuela.generar_id_materia(materia)
         materia.id_materia=generar_numero_control_materia
         escuela.registrar_materia(materia)

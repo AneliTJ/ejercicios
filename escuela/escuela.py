@@ -62,11 +62,11 @@ class Escuela:
         self.lista_materias.append(materia)
 
     def generar_id_materia(self,materia: Materia):
-        letra_instructor= materia.instructor [-2:].upper()
+        nombre_materia= materia.nombre_materia [-2:].upper()
         numero_semestre= materia.semestre 
         cant_creditos = materia.creditos
         aleatorio= randint(1,1000)
-        id_materia= f"MT{letra_instructor}{numero_semestre}{cant_creditos}{aleatorio}"
+        id_materia= f"MT{nombre_materia}{numero_semestre}{cant_creditos}{aleatorio}"
         return id_materia
     
     def listar_materias(self):
