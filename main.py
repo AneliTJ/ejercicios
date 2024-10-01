@@ -3,6 +3,9 @@ from estudiantes.estudiante import Estudiante
 from maestros.maestro import Maestro
 from datetime import datetime
 from materias.materia import Materia
+from carrera.carrera import Carrera
+from semestre.semestre import Semestre
+from grupos.grupo import Grupo
 escuela = Escuela()
 
 
@@ -20,7 +23,12 @@ while True:
     print("10. Eliminar estudiante")
     print("11. Eliminar maestro")
     print("12. Eliminar materia")
-    print("13. Salir")
+    print("13. Registrar carrera")
+    print("14. Registrar semestre")
+    print("15. Mostrar carreras")
+    print("16. Mostrar semestres")
+    print("17. Mostrar grupos")
+    print("18. Salir")
 
     opcion = input("Ingresa una opcion para continuar: ")
 
@@ -67,7 +75,11 @@ while True:
 
 
     elif opcion =="4":
-        pass
+        print("Seleccionaste la opcion de agregar un grupo")
+        tipo= input("Ingresa el tipo de grupo: (A/B): ")
+        id_semestre= input ("Ingresa el ID del semestre al que pertenece: ")
+        grupo=Grupo(tipo=tipo,id_semestre=id_semestre)
+        escuela.registrar_grupo(grupo=grupo)
 
 
     elif opcion =="5":
@@ -101,5 +113,29 @@ while True:
         escuela.eliminar_materia(id_materia=id_materia)
 
     elif opcion =="13":
+        print ("\nSeleccionaste la opcion para registrar una carrera")
+        nombre = input("Ingresa el nombre de la carrera")
+        carrera = Carrera(nombre=nombre)
+
+    elif opcion =="14":
+        print ("Seleccionaste la opcion de registrar un semestre")
+        numero=input("Ingresa el numero del semestre: ")
+        id_carrera = input ("Ingres el ID de la carrera: ")
+        semestre=Semestre(numero=numero, id_carrera=id_carrera)
+        escuela.registrar_semestre(semestre=semestre)
+
+    elif opcion =="15":
+        escuela.listar_carreras()
+
+
+    elif opcion =="16":
+        escuela.listar_semestres()
+        
+
+    elif opcion =="17":
+        escuela.listar_grupos()
+        
+
+    elif opcion =="18":
         print ("\nHasta luego")
         break
