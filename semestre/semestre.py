@@ -25,5 +25,3 @@ class Semestre:
 
     def mostrar_info_semestre(self):
         print(f"ID: {self.id_semestre}, Numero del semestre: {self.numero}, ID de la carrera: {self.id_carrera}")
-
-    #mostrar id, numero y id de la carrera

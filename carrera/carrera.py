@@ -7,7 +7,7 @@ from semestre.semestre import Semestre
 class Carrera:
     matricula:str
     nombre: str
-    numero_semestres : int
+    numero_semestres : int = 0
     semestres : List [Semestre] = []
 
     def __init__ (self, nombre:str):
@@ -24,5 +24,3 @@ class Carrera:
 
     def mostrar_info_carrera(self):
         print(f"Matricula: {self.matricula}, Nombre: {self.nombre}, Numero de semestre: {self.numero_semestres} ")
-
-        #mostrar la matricula, nombre y numero de semestres

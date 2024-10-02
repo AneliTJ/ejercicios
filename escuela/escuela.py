@@ -39,7 +39,7 @@ class Escuela:
     def registrar_grupo(self, grupo:Grupo):
         id_semestre = grupo.id_semestre
         for semestre in self.lista_semestres:
-            if id_semestre == semestre.id:
+            if id_semestre == semestre.id_semestre:
                 semestre.registrar_grupo_en_semestre(grupo=grupo)
                 break
         self.lista_grupos.append(grupo) 
@@ -94,6 +94,7 @@ class Escuela:
             print(semestre.mostrar_info_semestre())
 
     def listar_grupos(self):
+        print("****Grupos*****")
         for grupo in self.lista_grupos:
             print(grupo.mostrar_info_grupo())
 
