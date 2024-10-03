@@ -5,9 +5,8 @@ from materias.materia import Materia
 from semestre.semestre import Semestre
 from carrera.carrera import Carrera
 from grupos.grupo import Grupo
+from usuario.utils.roles import Rol
 from datetime import datetime
-
-## el .. es para salir de menu en clase, ir a la carpeta y de ahi ahora si buscar lo de arriba 
 
 
 class Menu:
@@ -111,7 +110,10 @@ class Menu:
                 mes = int(input("Ingresa el mes nacimiento del estudiante: "))
                 dia = int(input("Ingresa el dia nacimiento del estudiante: "))
                 fecha_nacimiento = datetime(ano, mes, dia)
-                estudiante= Estudiante(numero_control= "", nombre = nombre, apellido=apellido,curp=curp, fecha_nacimiento=fecha_nacimiento)
+
+                contrasena= input("Ingresa la contraseña: ")
+
+                estudiante= Estudiante(numero_control=numero_control, nombre = nombre, apellido=apellido,curp=curp, fecha_nacimiento=fecha_nacimiento, contrasena=contrasena)
                 self.escuela.registrar_estudiante(estudiante)
 
             elif opcion =="2":
@@ -123,7 +125,8 @@ class Menu:
                 letra_rfc = rfc [-2:0]
                 sueldo = input("Ingresa el sueldo del maestro: ")
                 ano_nacimiento = int(input("Ingresa el año nacimiento del maestro: "))
-                maestro= Maestro(numero_control= "", nombre = nombre, ano_nacimiento =ano_nacimiento, apellido=apellido, rfc=rfc, sueldo=sueldo)
+                contrasena= input("Ingresa la contraseña: ")
+                maestro= Maestro(numero_control= "", nombre = nombre, ano_nacimiento =ano_nacimiento, apellido=apellido, rfc=rfc, sueldo=sueldo,contrasena=contrasena)
                 generar_numero_control_maestro = self.escuela.generar_numero_control_maestro(maestro)
                 maestro.numero_control=generar_numero_control_maestro
                 self.escuela.registrar_maestro(maestro)
