@@ -11,7 +11,10 @@ class Coordinador(Usuario):
             numero_control=numero_control, 
             nombre=nombre, 
             apellido=apellido, 
-            contrasena=contrasena)
+            contrasena=contrasena,
+            rol= Rol.COORDINADOR
+            )
         self.sueldo=sueldo
         self.rfc=rfc
         self.antiguedad=antiguedad
+        
