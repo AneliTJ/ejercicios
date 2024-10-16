@@ -5,22 +5,44 @@ from maestros.maestro import Maestro
 from materias.materia import Materia
 from carrera.carrera import Carrera
 from semestre.semestre import Semestre
+from coordinador.coordinador import Coordinador
+from usuario.usuario import Usuario
 from datetime import datetime
 from random import randint
 
 class Escuela:
+    lista_usuarios: List [Usuario]=[]
     lista_estudiantes: List[Estudiante]=[]
     lista_maestros: List [Maestro]=[]
+    lista_coordinadores: List [Coordinador]=[]
     lista_grupos: List[Grupo]=[]
     lista_materias: List[Materia]=[]
     lista_carreras: List [Carrera] = []
     lista_semestres : List[Semestre] =[]
 
+    def __init__ (self):
+        coordinador=Coordinador(
+        numero_control = "12345",
+        nombre="Edson",
+        apellido="Medina",
+        rfc = "MEDINA123",
+        sueldo=10000,
+        antiguedad= 10,
+        contrasena="123*",
+        )
+        self.lista_coordinadores.append(coordinador)
+
     def registrar_estudiante(self,estudiante: Estudiante):
+        self.lista_usuarios.append(estudiante)
         self.lista_estudiantes.append(estudiante)
 
     def registrar_maestro (self, maestro:Maestro):
+        self.lista_usuarios.append(maestro)
         self.lista_maestros.append(maestro)
+
+    def registrar_coordinador (self, coordinador:Coordinador):
+        self.lista_usuarios.append(coordinador)
+        self.lista_coordinadores.append(coordinador)
 
     def registrar_materia(self, materia: Materia):
         self.lista_materias.append(materia)
@@ -67,6 +89,12 @@ class Escuela:
         id_materia= f"MT{nombre_materia}{numero_semestre}{cant_creditos}{aleatorio}"
         return id_materia
     
+    def validar_inicio_sesion(self, numero_control: str, contrasena: str):
+        for usuario in self.lista_usuarios:
+            if usuario.numero_control == numero_control:
+                if usuario.contrasena == contrasena:
+                    return usuario
+        return None
     
     def listar_estudiantes(self):
         print("**Estudiantes**")
@@ -123,4 +151,55 @@ class Escuela:
             return
         print(f"No se encontro la materia con el ID: {id_materia}")
 
+    def buscar_estudiante_por_numero_control(self,id_estudiante:str):
+        for estudiante in self.lista_estudiantes:
+            if estudiante.numero_control == numero_control:
+                return estudiante
+        return None
+    
+    def buscar_grupo_por_id(self,id_grupo:str):
+        for grupo in self.lista_grupos:
+            if grupo.id_grupo=id_grupo:
+                return grupo
+            return None
+        
+
+    def buscar_maestro_por_numero_control(self,numero_control_maestro:str):
+        for maestro in self.lista_maestros:
+            if maestro.numero_control == numero_control_maestro:
+                return maestro
+        return None
+
+
+    def registrar_estudiante_en_grupo(self, id_estudiante:str ):
+        estudiante=self.buscar_estudiante_por_numero_control(
+            numero_control_estudiante=numero_control)
+
+        if estudiante is None:
+            print("No se encontro un estudiante con el numero de control proporcionado")
+            return #para la ejecucion
+        grupo=self.buscar_grupo_por_id(id_grupo=id_grupo)
+
+        if grupo is None:
+            print("No se encontro un grupo con ese ID proporcionado")
+            return 
+        
+        grupo.registrar_estudiante(estudiante=estudiante)
+        print("Estudiante asignado al grupo correctamente")
+
+    def ver_grupos_asignados_a_estudiante(self):
+        estudiante=self.buscar_estudiante_por_numero_control(
+            numero_control_estudiante=numero_control)
+
+        if estudiante is None:
+            print("No se encontro un estudiante con el numero de control proporcionado")
+            return #para la ejecucion
+        grupo=self.buscar_grupo_por_id(id_grupo=id_grupo)
+
+        if grupo is None:
+            print("No se encontro un grupo con ese ID proporcionado")
+            return
+        
+
+        
     

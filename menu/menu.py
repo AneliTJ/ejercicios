@@ -12,34 +12,30 @@ from datetime import datetime
 class Menu:
     escuela: Escuela =Escuela()
 
-    usuario_estudiante: str = "Juan123"
-    contrasena_estudiante: str = "12345*"
-
-    usuario_maestro: str = "hilary123"
-    contrasena_maestro: str = "54321*"
-
     def login(self):
         intentos = 0
         while intentos <5:
             print("*********Bienvenido*******")
             print("Inicia sesion para continuar")
-            nombre_usuario = input ("Ingresa tu nombre de usuario: ")
+            numero_control = input ("Ingresa tu numero de control de usuario: ")
             contrasena_usuario = input ("Ingresa tu contraseña de usuario: ")
-            if nombre_usuario == self.usuario_estudiante:
-                if contrasena_usuario== self.contrasena_estudiante:
-                    self.mostrar_menu_estudiante()
-                    intentos=0
-                else:
-                    intentos=self.mostrar_intento_sesion_fallido(intentos_usuario=intentos)
-            elif nombre_usuario == self.usuario_maestro:
-                if contrasena_usuario== self.contrasena_maestro:
-                    self.mostrar_menu_maestro()
-                    intentos=0
-                else:
-                    intentos=self.mostrar_intento_sesion_fallido(intentos_usuario=intentos)
-
-            else:
+            
+            usuario = self.escuela.validar_inicio_sesion(numero_control=numero_control, contrasena=contrasena_usuario)
+            if usuario is None:
                 intentos=self.mostrar_intento_sesion_fallido(intentos_usuario=intentos)
+            else:
+                if usuario.rol == Rol.ESTUDIANTE:
+                    self.mostrar_menu_estudiante(usuario)
+                    intentos = 0
+                elif usuario.rol == Rol.MAESTRO:
+                    self.mostrar_menu_maestro(usuario)
+                    intentos = 0
+                else:
+                    self.mostrar_menu()
+                    intentos = 0
+                 
+             
+
 
         print("Maximos intentos alcanzados. Adios")
 
@@ -47,39 +43,71 @@ class Menu:
         print ("Usuario o contraseña incorrectos. Intenta de nuevo")
         return intentos_usuario + 1
 
-    def mostrar_menu_estudiante(self):
+    def mostrar_menu_estudiante(self, usuario):
         opcion =0
-        while opcion != 3:
+        while opcion != 9:
             print ("\n *****Mindbox*****")
             print("1. Ver horarios")
             print("2. Ver grupos")
             print("3. Ver materia")
             print("4. Ver semestre")
-            print("4. Ver carrera")
-            print("4. Ver profesores")
-            print("5. Registrar horario")
-            print("3. Salir")
+            print("5. Ver carrera")
+            print("6. Ver profesores")
+            print("7. Ver mi informacion")
+            print("8. Registrar horario")
+            print("9. Salir")
             opcion = int (input("Ingresa una opcion: "))
 
-            if opcion == 3:
+            if opcion==2:
+                self.escuela.ver_grupos_asignados_a_estudiante()
+
+            elif opcion == 7:
+                print(usuario.mostrar_info_estudiante())
+
+            elif opcion == 9:
                 break
 
-    def mostrar_menu_maestro(self):
+    def mostrar_menu_maestro(self, usuario):
         opcion =0
-        while opcion != 5:
+        while opcion != 9:
             print ("\n *****Mindbox*****")
             print("1. Ver horarios")
             print("2. Ver grupos")
             print("3. Ver materia")
             print("4. Ver semestre")
-            print("4. Ver carreras")
-            print("3. Ver alumnos")
-            print("5. Registrar horario")
-            print("5. Salir")
+            print("5. Ver carreras")
+            print("6. Ver alumnos")
+            print("7. Ver mi informacion")
+            print("8. Registrar horario")
+            print("9. Salir")
 
             opcion = int (input("Ingresa una opcion: "))
 
-            if opcion == 5:
+            if opcion == 7:
+                print(usuario.mostrar_info_maestro())
+
+            if opcion == 9:
+                break
+
+    def mostrar_menu_coordinador(self, usuario):
+        opcion =0
+        while opcion != 9:
+            print ("\n *****Mindbox*****")
+            print("1. Ver horarios")
+            print("2. Ver grupos")
+            print("3. Ver materia")
+            print("4. Ver semestre")
+            print("5. Ver carrera")
+            print("6. Ver profesores")
+            print("7. Ver mi informacion")
+            print("8. Registrar horario")
+            print("9. Salir")
+            opcion = int (input("Ingresa una opcion: "))
+
+            if opcion == 7:
+                print(usuario.mostrar_info_coordinador())
+
+            if opcion == 9:
                 break
 
 
@@ -146,6 +174,13 @@ class Menu:
                 descripcion= input ("Ingresa la descipcion de la materia: ")
                 semestre= int(input("Ingresa el semestre correspondiente a la materia: "))
                 creditos= int (input("Ingresa los creditos de la materia: "))
+                id_maestro= input("Ingresa el ID del maestro asignado a esta meteria: ")
+
+                maestro=self.escuela.buscar_maestro_por_numero_control(numero_control_maestro=id_maestro)
+                if maestro is None:
+                    print("No existe un maestro con ese numero de control")
+                    return
+
                 materia = Materia(id_materia= "", nombre_materia=nombre_materia, descripcion=descripcion, semestre=semestre,creditos=creditos)
                 generar_numero_control_materia=self.escuela.generar_id_materia(materia)
                 materia.id_materia=generar_numero_control_materia

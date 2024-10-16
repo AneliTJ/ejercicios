@@ -17,4 +17,9 @@ class Coordinador(Usuario):
         self.sueldo=sueldo
         self.rfc=rfc
         self.antiguedad=antiguedad
+
+    def mostar_info_coordinador(self):
+        nombre_completo= f"{self.nombre} {self.apellido}"
+        info=f"Numero de control: {self.numero_control}, Nombre: {nombre_completo}, Sueldo: {self.sueldo}, RFC: {self.rfc}, Años de antiguedad: {self.antiguedad}"
+        return info
         

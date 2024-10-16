@@ -8,14 +8,16 @@ class Materia:
     descripcion: str
     semestre: int
     creditos: int
+    maestro: Maestro
 
-    def __init__ (self, id_materia: int, nombre_materia: str, descripcion: str, semestre:int, creditos: int):
+    def __init__ (self, id_materia: int, nombre_materia: str, descripcion: str, semestre:int, creditos: int, maestro:Maestro):
         self.id_materia = id_materia
         self.nombre_materia = nombre_materia 
         self.descripcion = descripcion
         self.semestre=semestre
         self.creditos=creditos
+        self.maestro=maestro
 
     def mostrar_materias(self):
-        print(f"ID de la materia: {self.id_materia}, Materia: {self.nombre_materia}, Descripcion: {self.descripcion}, Semestre: {self.semestre}, Creditos: {self.creditos}")
+        print(f"ID de la materia: {self.id_materia}, Materia: {self.nombre_materia}, Descripcion: {self.descripcion}, Semestre: {self.semestre}, Creditos: {self.creditos}, Maestro: {self.maestro}")
         
