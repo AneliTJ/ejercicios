@@ -22,13 +22,13 @@ class Escuela:
 
     def __init__ (self):
         coordinador=Coordinador(
-        numero_control = "12345",
+        numero_control = "hola12",
         nombre="Edson",
         apellido="Medina",
         rfc = "MEDINA123",
         sueldo=10000,
         antiguedad= 10,
-        contrasena="123*",
+        contrasena="oaa12",
         )
         self.lista_coordinadores.append(coordinador)
 
@@ -151,15 +151,15 @@ class Escuela:
             return
         print(f"No se encontro la materia con el ID: {id_materia}")
 
-    def buscar_estudiante_por_numero_control(self,id_estudiante:str):
+    def buscar_estudiante_por_numero_control(self,numero_control_estudiante:str):
         for estudiante in self.lista_estudiantes:
-            if estudiante.numero_control == numero_control:
+            if estudiante.numero_control == numero_control_estudiante:
                 return estudiante
         return None
     
     def buscar_grupo_por_id(self,id_grupo:str):
         for grupo in self.lista_grupos:
-            if grupo.id_grupo=id_grupo:
+            if grupo.id_grupo==id_grupo:
                 return grupo
             return None
         
@@ -171,7 +171,7 @@ class Escuela:
         return None
 
 
-    def registrar_estudiante_en_grupo(self, id_estudiante:str ):
+    def registrar_estudiante_en_grupo(self,numero_control:str, id_grupo:str):
         estudiante=self.buscar_estudiante_por_numero_control(
             numero_control_estudiante=numero_control)
 
@@ -187,18 +187,16 @@ class Escuela:
         grupo.registrar_estudiante(estudiante=estudiante)
         print("Estudiante asignado al grupo correctamente")
 
-    def ver_grupos_asignados_a_estudiante(self):
+    def ver_grupos_asignados_a_estudiante(self, numero_control_estudiante:str):
         estudiante=self.buscar_estudiante_por_numero_control(
-            numero_control_estudiante=numero_control)
+            numero_control_estudiante=numero_control_estudiante)
 
         if estudiante is None:
             print("No se encontro un estudiante con el numero de control proporcionado")
             return #para la ejecucion
-        grupo=self.buscar_grupo_por_id(id_grupo=id_grupo)
 
-        if grupo is None:
-            print("No se encontro un grupo con ese ID proporcionado")
-            return
+        for grupo in self.lista_grupos:
+            grupo.mostrar_info_grupo_para_estudiante()
         
 
         

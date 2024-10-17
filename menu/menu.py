@@ -25,7 +25,7 @@ class Menu:
                 intentos=self.mostrar_intento_sesion_fallido(intentos_usuario=intentos)
             else:
                 if usuario.rol == Rol.ESTUDIANTE:
-                    self.mostrar_menu_estudiante(usuario)
+                    self.mostrar_menu_estudiante(estudiante=usuario)
                     intentos = 0
                 elif usuario.rol == Rol.MAESTRO:
                     self.mostrar_menu_maestro(usuario)
@@ -43,7 +43,7 @@ class Menu:
         print ("Usuario o contraseña incorrectos. Intenta de nuevo")
         return intentos_usuario + 1
 
-    def mostrar_menu_estudiante(self, usuario):
+    def mostrar_menu_estudiante(self, estudiante: Estudiante):
         opcion =0
         while opcion != 9:
             print ("\n *****Mindbox*****")
@@ -61,13 +61,14 @@ class Menu:
             if opcion==2:
                 self.escuela.ver_grupos_asignados_a_estudiante()
 
+
             elif opcion == 7:
-                print(usuario.mostrar_info_estudiante())
+                print(estudiante.mostrar_info_estudiante())
 
             elif opcion == 9:
                 break
 
-    def mostrar_menu_maestro(self, usuario):
+    def mostrar_menu_maestro(self, maestro:Maestro):
         opcion =0
         while opcion != 9:
             print ("\n *****Mindbox*****")
@@ -84,7 +85,7 @@ class Menu:
             opcion = int (input("Ingresa una opcion: "))
 
             if opcion == 7:
-                print(usuario.mostrar_info_maestro())
+                print(maestro.mostrar_info_maestro())
 
             if opcion == 9:
                 break
@@ -131,7 +132,8 @@ class Menu:
             print("14. Registrar semestre")
             print("15. Mostrar carreras")
             print("16. Mostrar semestres")
-            print("17. Salir")
+            print("17. Registrar estudiante en grupo")
+            print("18. Salir")
 
             opcion = input("Ingresa una opcion para continuar: ")
 
@@ -244,6 +246,15 @@ class Menu:
             elif opcion =="16":
                 self.escuela.listar_semestres()
                 
+            elif opcion =="17":
+                numero_control_estudiante= input ("Ingresa el ID del estudiante: ")
+                id_grupo = input("Ingrese el ID del grupo al cual se asignara el estudiante: ")
+                self.escuela.registrar_estudiante_en_grupo (
+                    numero_control_estudiante=numero_control_estudiante,
+                    id_grupo=id_grupo
+                )
+                
+
             elif opcion =="18":
                 print ("\nHasta luego")
                 break
