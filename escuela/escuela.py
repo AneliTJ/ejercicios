@@ -22,15 +22,16 @@ class Escuela:
 
     def __init__ (self):
         coordinador=Coordinador(
-        numero_control = "hola12",
+        numero_control = "1234",
         nombre="Edson",
         apellido="Medina",
         rfc = "MEDINA123",
         sueldo=10000,
         antiguedad= 10,
-        contrasena="oaa12",
+        contrasena="12345*"
         )
         self.lista_coordinadores.append(coordinador)
+        self.lista_usuarios.append(coordinador)
 
     def registrar_estudiante(self,estudiante: Estudiante):
         self.lista_usuarios.append(estudiante)
